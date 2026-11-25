@@ -1,5 +1,6 @@
 {{- $posts := where site.RegularPages "Type" "posts" }}
 <aside class="lf-panel" aria-label="Sidebar">
+  <div class="lf-panel-top">{{ partial "lf_theme_switch.html" (dict "where" "panel") }}</div>
   <section class="lf-widget">
     <h2>Recently updated</h2>
     <ul class="lf-recent">
