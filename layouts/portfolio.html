@@ -1,0 +1,37 @@
+{{- define "main" }}
+{{- $gh := site.Params.sidebar.github }}
+<header class="page-header lf-page-head">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p class="lf-page-sub">{{ . }}</p>{{ end }}
+</header>
+
+<div class="lf-projects">
+  {{- range site.Data.projects }}
+  <article class="lf-project">
+    <div class="lf-project-top">
+      <svg class="lf-repo-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>
+      <h2><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></h2>
+    </div>
+    <p class="lf-project-desc">{{ .description | default "No description yet." }}</p>
+    {{- with .topics }}
+    <div class="lf-project-topics">{{ range first 5 . }}<span class="lf-tag lf-tag-sm">{{ . }}</span>{{ end }}</div>
+    {{- end }}
+    <div class="lf-project-meta">
+      {{- with .language }}<span class="lf-lang"><i class="lf-lang-dot lf-lang-{{ . | urlize }}"></i>{{ . }}</span>{{ end }}
+      {{- if gt .stars 0 }}<span>★ {{ .stars }}</span>{{ end }}
+      <span>Updated {{ time.Format "Jan 2, 2006" .pushed }}</span>
+    </div>
+    <div class="lf-project-links">
+      <a class="lf-btn-sm" href="{{ .url }}" target="_blank" rel="noopener">View code</a>
+      {{- with .homepage }}<a class="lf-btn-sm lf-btn-sm-ghost" href="{{ . }}" target="_blank" rel="noopener">Live site</a>{{ end }}
+    </div>
+  </article>
+  {{- else }}
+  <p>No public projects yet.</p>
+  {{- end }}
+</div>
+
+{{- with $gh }}
+<p class="lf-more"><a href="https://github.com/{{ .user }}?tab=repositories" target="_blank" rel="noopener">See everything on GitHub →</a></p>
+{{- end }}
+{{- end }}

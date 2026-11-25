@@ -47,23 +47,34 @@ params:
       Everything here broke at least once so you don't have to find out the hard way.
 
 menu:
-  main:
-    - identifier: posts
-      name: Posts
-      url: /posts/
+  # left sidebar
+  sidebar:
+    - identifier: home
+      name: Home
+      url: /
       weight: 10
     - identifier: tags
       name: Tags
       url: /tags/
       weight: 20
+    - identifier: portfolio
+      name: Portfolio
+      url: /portfolio/
+      weight: 30
+  # tabs in the top bar
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
     - identifier: archives
       name: Archives
       url: /archives/
-      weight: 30
+      weight: 20
     - identifier: search
       name: Search
       url: /search/
-      weight: 40
+      weight: 30
 
 markup:
   goldmark:

@@ -177,7 +177,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
     background: rgba(127, 156, 255, .06); border: 1px solid var(--lf-line);
     transition: transform .15s, border-color .15s, background .15s, box-shadow .15s;
 }
-.lf-link svg, .lf-ext-link svg, .lf-burger svg, .lf-search-btn svg {
+.lf-link svg, .lf-ext-link svg, .lf-burger svg, .lf-tab svg, .lf-repo-ico {
     width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none;
 }
 .lf-link svg { color: var(--lf-cyan); }
@@ -205,20 +205,10 @@ code, pre, kbd { font-family: var(--lf-mono); }
 .lf-topbar {
     position: sticky; top: 0; z-index: 40;
     display: flex; align-items: center; gap: 14px;
-    height: 64px; padding: 0 32px;
+    height: 64px; padding: 0 32px 0 32px; justify-content: center;
     background: rgba(6, 8, 15, .78); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--lf-line);
 }
-.lf-crumb { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--lf-muted); font-size: .9rem; }
-.lf-crumb a { color: var(--lf-cyan); }
-.lf-crumb .sep { margin: 0 8px; opacity: .5; }
-.lf-crumb .here { color: var(--lf-text); }
-.lf-search-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 7px 14px; border-radius: 999px; font-size: .85rem;
-    color: var(--lf-muted); border: 1px solid var(--lf-line); background: rgba(127, 156, 255, .05);
-}
-.lf-search-btn:hover { color: var(--lf-cyan); border-color: rgba(34, 227, 255, .45); }
 .lf-burger { display: none; cursor: pointer; color: var(--lf-text); padding: 6px; }
 
 .lf-center .main { width: 100%; max-width: calc(var(--main-width) + var(--gap) * 2); margin: 0 auto; padding: 28px var(--gap); flex: 1; }
@@ -268,7 +258,8 @@ code, pre, kbd { font-family: var(--lf-mono); }
     .lf-nav-toggle:checked ~ .lf-shell .lf-scrim { display: block; }
     .lf-burger { display: inline-flex; }
     .lf-topbar { padding: 0 16px; }
-    .lf-search-btn span { display: none; }
+    .lf-tab { padding: 0 12px; }
+    .lf-tab svg { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
     .lf-sidebar, .lf-link, .lf-avatar, .post-entry { transition: none; }
@@ -287,3 +278,67 @@ code, pre, kbd { font-family: var(--lf-mono); }
 }
 .lf-handle svg { width: 15px; height: 15px; fill: currentColor; }
 .lf-handle:hover { color: var(--lf-cyan); border-color: rgba(34, 227, 255, .45); }
+
+/* ----- top bar tabs ----- */
+.lf-tabs { display: flex; align-items: flex-end; align-self: stretch; gap: 4px; }
+.lf-tab {
+    position: relative; display: inline-flex; align-items: center; gap: 8px;
+    padding: 0 20px; height: calc(100% - 12px); margin-top: 12px;
+    border: 1px solid transparent; border-bottom: 0; border-radius: 12px 12px 0 0;
+    color: var(--lf-muted); font-weight: 600; font-size: .92rem;
+    transition: color .15s, background .15s;
+}
+.lf-tab svg { width: 16px; height: 16px; }
+.lf-tab:hover { color: var(--lf-text); background: rgba(127, 156, 255, .06); }
+.lf-tab { background: rgba(127, 156, 255, .04); border-color: rgba(148, 163, 255, .08); }
+.lf-tab.is-active {
+    color: var(--lf-cyan);
+    background: linear-gradient(180deg, #16204a, var(--lf-surface));
+    border-color: rgba(34, 227, 255, .45);
+    margin-bottom: -1px; height: calc(100% - 11px);
+    box-shadow: 0 -10px 28px -10px var(--lf-glow-cyan), inset 0 1px 0 rgba(255, 255, 255, .06);
+    z-index: 1;
+}
+.lf-tab.is-active::before {
+    content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; border-radius: 12px 12px 0 0;
+    background: linear-gradient(90deg, var(--lf-cyan), var(--lf-magenta));
+    box-shadow: 0 0 12px var(--lf-glow-cyan);
+}
+@media (max-width: 860px) {
+    .lf-topbar { justify-content: flex-start; }
+    .lf-tabs { flex: 1; justify-content: center; }
+}
+
+/* ----- portfolio ----- */
+.lf-page-head h1 { font-size: 2.2rem; }
+.lf-page-sub { color: var(--lf-muted); margin-top: 6px; }
+.lf-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 22px; }
+.lf-project {
+    display: flex; flex-direction: column; gap: 12px; padding: 22px;
+    border-radius: var(--radius); border: 1px solid var(--lf-line);
+    background: linear-gradient(180deg, rgba(17, 24, 48, .9), rgba(10, 14, 28, .9));
+    transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.lf-project:hover { transform: translateY(-3px); border-color: rgba(34, 227, 255, .45); box-shadow: 0 0 30px rgba(34, 227, 255, .1); }
+.lf-project-top { display: flex; align-items: center; gap: 10px; }
+.lf-repo-ico { color: var(--lf-magenta); width: 20px; height: 20px; }
+.lf-project h2 { font-size: 1.12rem; margin: 0; word-break: break-word; }
+.lf-project h2 a { color: var(--primary); }
+.lf-project h2 a:hover { color: var(--lf-cyan); }
+.lf-project-desc { color: var(--lf-muted); font-size: .92rem; line-height: 1.55; margin: 0; flex: 1; }
+.lf-project-topics { display: flex; flex-wrap: wrap; gap: 6px; }
+.lf-project-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: .8rem; color: #6f7ca3; }
+.lf-lang { display: inline-flex; align-items: center; gap: 6px; }
+.lf-lang-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lf-cyan); display: inline-block; }
+.lf-lang-python { background: #3572a5; } .lf-lang-swift { background: #f05138; } .lf-lang-shell { background: #89e051; }
+.lf-lang-typescript { background: #3178c6; } .lf-lang-javascript { background: #f1e05a; } .lf-lang-go { background: #00add8; }
+.lf-lang-css { background: #663399; } .lf-lang-html { background: #e34c26; } .lf-lang-c\+\+, .lf-lang-cpp { background: #f34b7d; }
+.lf-project-links { display: flex; gap: 10px; }
+.lf-btn-sm {
+    padding: 7px 14px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+    color: #041016; background: linear-gradient(90deg, var(--lf-cyan), #8be9ff);
+}
+.lf-btn-sm-ghost { color: var(--lf-text); background: transparent; border: 1px solid rgba(214, 107, 255, .45); }
+.lf-btn-sm:hover { box-shadow: 0 0 18px var(--lf-glow-cyan); }
+.lf-more { margin-top: 26px; }
+.lf-more a { color: var(--lf-cyan); font-family: var(--lf-mono); font-size: .9rem; }
