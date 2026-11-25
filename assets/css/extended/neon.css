@@ -350,3 +350,82 @@ code, pre, kbd { font-family: var(--lf-mono); }
 .lf-btn-sm:hover { box-shadow: 0 0 18px var(--lf-glow-cyan); }
 .lf-more { margin-top: 26px; }
 .lf-more a { color: var(--lf-cyan); font-family: var(--lf-mono); font-size: .9rem; }
+
+/* ==========================================================
+   Light mode (toggle in top bar; dark is the default)
+   ========================================================== */
+:root[data-theme="light"] {
+    --lf-bg: #f4f6fc;
+    --lf-surface: #ffffff;
+    --lf-surface-2: #eef2fa;
+    --lf-line: rgba(40, 55, 120, .14);
+    --lf-text: #1e2645;
+    --lf-muted: #5a6588;
+    --lf-cyan: #0e7490;
+    --lf-magenta: #9333ea;
+    --lf-lime: #65a30d;
+    --lf-glow-cyan: rgba(14, 116, 144, .18);
+    --lf-glow-mag: rgba(147, 51, 234, .18);
+
+    --theme: var(--lf-bg);
+    --entry: var(--lf-surface);
+    --primary: #0f1530;
+    --secondary: var(--lf-muted);
+    --tertiary: #e3e8f5;
+    --content: var(--lf-text);
+    --code-bg: #eef2fa;
+    --code-block-bg: #111830;
+    color-scheme: light;
+}
+[data-theme="light"] body {
+    background:
+        radial-gradient(900px 500px at 85% -10%, rgba(147, 51, 234, .08), transparent 60%),
+        radial-gradient(800px 500px at -10% 10%, rgba(14, 116, 144, .08), transparent 60%),
+        linear-gradient(rgba(40, 55, 120, .04) 1px, transparent 1px) 0 0 / 100% 32px,
+        linear-gradient(90deg, rgba(40, 55, 120, .04) 1px, transparent 1px) 0 0 / 32px 100%,
+        var(--lf-bg);
+    background-attachment: fixed;
+}
+[data-theme="light"] .lf-sidebar { background: linear-gradient(180deg, #ffffff, #f1f4fb); }
+[data-theme="light"] .lf-topbar { background: rgba(255, 255, 255, .82); }
+[data-theme="light"] .lf-widget { background: rgba(255, 255, 255, .85); }
+[data-theme="light"] .post-entry,
+[data-theme="light"] .lf-project { background: #ffffff; box-shadow: 0 1px 2px rgba(20, 30, 70, .06); }
+[data-theme="light"] .post-entry:hover,
+[data-theme="light"] .lf-project:hover { box-shadow: 0 12px 30px rgba(20, 30, 70, .12); }
+[data-theme="light"] .post-entry:hover .entry-header h2 { color: var(--lf-cyan); }
+[data-theme="light"] .entry-footer,
+[data-theme="light"] .lf-project-meta,
+[data-theme="light"] .lf-center .footer { color: #6b7699; }
+[data-theme="light"] .lf-tag,
+[data-theme="light"] .post-tags a { color: #3b4a7a; background: rgba(40, 55, 120, .05); border-color: rgba(40, 55, 120, .16); }
+[data-theme="light"] .post-content h3 { color: var(--primary); }
+[data-theme="light"] .post-content a:hover { color: var(--lf-magenta); text-shadow: none; }
+[data-theme="light"] .post-content code { color: #7c3aed; }
+[data-theme="light"] .post-content pre code { color: #e6edff; }
+[data-theme="light"] .lf-link.is-active,
+[data-theme="light"] .lf-btn-sm:not(.lf-btn-sm-ghost) { color: #062a33; background: linear-gradient(90deg, #67e8f9, #cffafe); }
+[data-theme="light"] .lf-link.is-active svg { color: #062a33; }
+[data-theme="light"] .lf-topbar { --tab-bg: #e6ebf6; }
+[data-theme="light"] .lf-tab { background: linear-gradient(180deg, #f0f3fa, var(--tab-bg)); box-shadow: none; }
+[data-theme="light"] .lf-tab:hover { background: linear-gradient(180deg, #f7f9fd, #eaeff8); }
+[data-theme="light"] .lf-tab.is-active { color: var(--primary); background: #ffffff; border-color: rgba(40, 55, 120, .2); }
+[data-theme="light"] .lf-tab.is-active span::before { box-shadow: 0 0 0 3px rgba(101, 163, 13, .18), 0 0 8px rgba(101, 163, 13, .6); }
+
+/* ----- theme toggle ----- */
+.lf-theme-btn {
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer;
+    color: var(--lf-text); background: var(--lf-surface-2);
+    border: 1px solid var(--lf-line);
+    transition: color .15s, border-color .15s, box-shadow .15s, background .15s;
+}
+.lf-theme-btn:hover { color: var(--lf-cyan); border-color: var(--lf-cyan); box-shadow: 0 0 16px var(--lf-glow-cyan); }
+.lf-theme-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lf-theme-btn .i-moon { display: none; }
+[data-theme="light"] .lf-theme-btn .i-sun { display: none; }
+[data-theme="light"] .lf-theme-btn .i-moon { display: block; }
+@media (max-width: 860px) {
+    .lf-theme-btn { position: static; transform: none; width: 34px; height: 34px; flex: none; }
+}

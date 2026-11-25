@@ -3,3 +3,22 @@
   <a href="{{ "index.xml" | absLangURL }}">RSS</a>
   <a href="https://github.com/pandaboy6621" rel="noopener" target="_blank">GitHub</a>
 </div>
+<script>
+  (function () {
+    var btn = document.getElementById("lf-theme-toggle");
+    if (!btn) return;
+    var root = document.documentElement;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    function sync() {
+      var light = root.dataset.theme === "light";
+      btn.setAttribute("aria-pressed", light ? "true" : "false");
+      if (meta) meta.setAttribute("content", light ? "#f4f6fc" : "#06080f");
+    }
+    sync();
+    btn.addEventListener("click", function () {
+      root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+      try { localStorage.setItem("lf-theme", root.dataset.theme); } catch (e) {}
+      sync();
+    });
+  })();
+</script>
