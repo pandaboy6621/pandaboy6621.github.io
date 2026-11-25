@@ -63,6 +63,10 @@ menu:
       weight: 30
   # tabs in the top bar
   main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 5
     - identifier: posts
       name: Posts
       url: /posts/
