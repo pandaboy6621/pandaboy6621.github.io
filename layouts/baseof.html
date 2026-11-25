@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language }}" dir="{{ .Language.Direction | default "auto" }}" data-theme="dark">
+
+<head>
+    {{- partial "head.html" . }}
+</head>
+
+<body class="{{ if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) }}list{{ end }}" id="top">
+    <input type="checkbox" id="lf-nav-toggle" class="lf-nav-toggle" aria-hidden="true">
+    <div class="lf-shell">
+        {{- partial "lf_sidebar.html" . }}
+        <label for="lf-nav-toggle" class="lf-scrim" aria-hidden="true"></label>
+
+        <div class="lf-center">
+            {{- partial "lf_topbar.html" . }}
+            <main class="main">
+                {{- block "main" . }}{{ end }}
+            </main>
+            {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+        </div>
+
+        {{- partial "lf_panel.html" . }}
+    </div>
+</body>
+
+</html>

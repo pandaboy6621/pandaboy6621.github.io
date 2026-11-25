@@ -25,34 +25,19 @@ params:
       url: /index.xml
   ShowReadingTime: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
   ShowToc: true
   TocOpen: false
   ShowWordCount: false
-  hero:
-    eyebrow: "// homelab field notes"
-    title: "Fixes that"
-    highlight: "actually work."
-    primaryText: "Read the latest"
-    secondaryText: "Browse by tag"
-  features:
-    - icon: "🐳"
-      title: "Docker & self-hosting"
-      text: "Compose stacks, upgrades and the weird errors nobody documents."
-      url: /tags/docker/
-    - icon: "🛡️"
-      title: "Security & SSO"
-      text: "authentik, CrowdSec and Traefik setups that keep the bad traffic out."
-      url: /tags/sso/
-    - icon: "🌐"
-      title: "Networking"
-      text: "Routers, subnets, VPNs and getting devices to see each other."
-      url: /tags/networking/
-    - icon: "🛠️"
-      title: "Scripts & DIY"
-      text: "Python helpers, CircuitPython gadgets and terminal one-liners."
-      url: /tags/diy/
+  sidebar:
+    avatar: "🔧"
+    tagline: "Homelab fixes, self-hosting how-tos and the odd hardware project."
+    links:
+      - name: GitHub
+        url: https://github.com/pandaboy6621
+      - name: RSS feed
+        url: /index.xml
   homeInfoParams:
     Title: "LiyaFixes"
     Content: >
@@ -70,10 +55,14 @@ menu:
       name: Tags
       url: /tags/
       weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
     - identifier: search
       name: Search
       url: /search/
-      weight: 30
+      weight: 40
 
 markup:
   goldmark:

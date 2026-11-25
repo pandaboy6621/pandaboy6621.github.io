@@ -1,0 +1,19 @@
+{{- $posts := where site.RegularPages "Type" "posts" }}
+<aside class="lf-panel" aria-label="Sidebar">
+  <section class="lf-widget">
+    <h2>Recently updated</h2>
+    <ul class="lf-recent">
+      {{- range first 5 $posts.ByLastmod.Reverse }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+  <section class="lf-widget">
+    <h2>Trending tags</h2>
+    <div class="lf-tagcloud">
+      {{- range first 12 site.Taxonomies.tags.ByCount }}
+      <a class="lf-tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title | lower }}</a>
+      {{- end }}
+    </div>
+  </section>
+</aside>

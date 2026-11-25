@@ -1,0 +1,36 @@
+{{- $cur := .RelPermalink }}
+<aside class="lf-sidebar" aria-label="Site navigation">
+  <div class="lf-profile">
+    <a href="{{ "" | absLangURL }}" class="lf-avatar" aria-label="{{ site.Title }} home">{{ site.Params.sidebar.avatar | default "🔧" }}</a>
+    <a href="{{ "" | absLangURL }}" class="lf-site-title">{{ site.Title }}</a>
+    <p class="lf-site-sub">{{ site.Params.sidebar.tagline }}</p>
+  </div>
+
+  <nav class="lf-links">
+    <a href="{{ "" | absLangURL }}" class="lf-link{{ if .IsHome }} is-active{{ end }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+    {{- range site.Menus.main }}
+    {{- $active := hasPrefix $cur .URL }}
+    <a href="{{ .URL | absLangURL }}" class="lf-link{{ if $active }} is-active{{ end }}">
+      {{- if eq .Identifier "posts" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM14 3v5h5M8 12h8M8 16h8"/></svg>
+      {{- else if eq .Identifier "tags" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V3h9l9 9-9 9zM7.5 7.5h.01"/></svg>
+      {{- else if eq .Identifier "archives" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v4H3zM5 8v12h14V8M10 12h4"/></svg>
+      {{- else if eq .Identifier "search" }}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+      {{- end }}{{ .Name }}</a>
+    {{- end }}
+  </nav>
+
+  {{- with site.Params.sidebar.links }}
+  <div class="lf-ext">
+    {{- range . }}
+    <a href="{{ .url | absLangURL }}" class="lf-ext-link"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>
+      <span>{{ .name }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  <div class="lf-sidebar-foot">
+    {{- partial "social_icons.html" }}
+  </div>
+</aside>
