@@ -1,6 +1,6 @@
 /* ==========================================================
    LiyaFixes — neon dark theme (layered on PaperMod)
-   Palette: electric cyan + violet-magenta + lime on deep navy
+   Palette: electric cyan + violet-magenta + kelly green on deep navy
    ========================================================== */
 
 :root,
@@ -13,7 +13,7 @@
     --lf-muted: #8a96b8;
     --lf-cyan: #22e3ff;
     --lf-magenta: #d66bff;
-    --lf-lime: #b6ff3b;
+    --lf-lime: #4cbb17;
     --lf-glow-cyan: rgba(34, 227, 255, 0.35);
     --lf-glow-mag: rgba(214, 107, 255, 0.35);
     --lf-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -302,7 +302,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
 .lf-tab.is-active span::before {
     content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%;
     vertical-align: middle; position: relative; top: -1px;
-    background: var(--lf-lime); box-shadow: 0 0 0 3px rgba(182, 255, 59, .15), 0 0 10px rgba(182, 255, 59, .8);
+    background: var(--lf-lime); box-shadow: 0 0 0 3px rgba(76, 187, 23, .15), 0 0 10px rgba(76, 187, 23, .8);
 }
 .lf-tab.is-active svg { display: none; }
 @media (max-width: 860px) {
@@ -314,7 +314,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
     .lf-tab svg { display: none; }
     .lf-tab-search span { display: none; }
     .lf-tab-search svg { display: inline-block; }
-    .lf-tab-search.is-active svg { display: inline-block; color: var(--lf-lime); filter: drop-shadow(0 0 6px rgba(182, 255, 59, .7)); }
+    .lf-tab-search.is-active svg { display: inline-block; color: var(--lf-lime); filter: drop-shadow(0 0 6px rgba(76, 187, 23, .7)); }
 }
 
 /* ----- portfolio ----- */
@@ -363,7 +363,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
     --lf-muted: #5a6588;
     --lf-cyan: #0e7490;
     --lf-magenta: #9333ea;
-    --lf-lime: #65a30d;
+    --lf-lime: #3a9d14;
     --lf-glow-cyan: rgba(14, 116, 144, .18);
     --lf-glow-mag: rgba(147, 51, 234, .18);
 
@@ -426,7 +426,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
 [data-theme="light"] .lf-ext-link:hover { border-color: var(--lf-pop-c); box-shadow: 0 0 16px rgba(139, 92, 246, .2); color: var(--lf-text); }
 [data-theme="light"] .post-entry::before { background: linear-gradient(90deg, var(--lf-pop-a), transparent 70%); opacity: 1; height: 3px; }
 [data-theme="light"] .post-entry:nth-of-type(3n+2)::before { background: linear-gradient(90deg, var(--lf-pop-c), transparent 70%); }
-[data-theme="light"] .post-entry:nth-of-type(3n+3)::before { background: linear-gradient(90deg, #84cc16, transparent 70%); }
+[data-theme="light"] .post-entry:nth-of-type(3n+3)::before { background: linear-gradient(90deg, #4cbb17, transparent 70%); }
 [data-theme="light"] .post-entry:hover,
 [data-theme="light"] .lf-project:hover { border-color: rgba(59, 130, 246, .4); }
 [data-theme="light"] .lf-section-title::after { background: linear-gradient(90deg, rgba(59, 130, 246, .55), transparent); }
@@ -434,7 +434,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
 [data-theme="light"] .lf-tag:hover,
 [data-theme="light"] .post-tags a:hover { color: var(--lf-pop-b); border-color: rgba(59, 130, 246, .45); box-shadow: 0 0 12px rgba(59, 130, 246, .15); }
 [data-theme="light"] .lf-repo-ico { color: var(--lf-pop-c); }
-[data-theme="light"] .lf-widget h2 { color: #4d7c0f; }
+[data-theme="light"] .lf-widget h2 { color: #2f7d10; }
 [data-theme="light"] .lf-recent li:hover { border-left-color: var(--lf-pop-b); }
 [data-theme="light"] .lf-recent a:hover { color: var(--lf-pop-b); }
 [data-theme="light"] .lf-switch:hover { border-color: rgba(59, 130, 246, .45); box-shadow: 0 0 14px rgba(59, 130, 246, .2); }
@@ -442,7 +442,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
 [data-theme="light"] .lf-tab { background: linear-gradient(180deg, #f0f3fa, var(--tab-bg)); box-shadow: none; }
 [data-theme="light"] .lf-tab:hover { background: linear-gradient(180deg, #f7f9fd, #eaeff8); }
 [data-theme="light"] .lf-tab.is-active { color: var(--primary); background: #ffffff; border-color: rgba(40, 55, 120, .2); }
-[data-theme="light"] .lf-tab.is-active span::before { box-shadow: 0 0 0 3px rgba(101, 163, 13, .18), 0 0 8px rgba(101, 163, 13, .6); }
+[data-theme="light"] .lf-tab.is-active span::before { box-shadow: 0 0 0 3px rgba(58, 157, 20, .18), 0 0 8px rgba(58, 157, 20, .6); }
 
 /* ----- theme switch ----- */
 .lf-panel-top {
