@@ -10,9 +10,11 @@
       {{- if eq .Identifier "home" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
       {{- else if eq .Identifier "posts" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM14 3v5h5M8 12h8M8 16h8"/></svg>
       {{- else if eq .Identifier "archives" }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v4H3zM5 8v12h14V8M10 12h4"/></svg>
-      {{- else if eq .Identifier "search" }}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
       {{- end }}<span>{{ .Name }}</span></a>
     {{- end }}
   </nav>
-  {{ partial "lf_theme_switch.html" (dict "where" "topbar") }}
+  <div class="lf-topbar-tools">
+    {{ partial "lf_search_pill.html" . }}
+    {{ partial "lf_theme_switch.html" (dict "where" "topbar") }}
+  </div>
 </header>

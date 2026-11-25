@@ -21,3 +21,17 @@
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", sync); else sync();
   })();
 </script>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search).get("q");
+    var input = document.getElementById("searchInput");
+    if (!q || !input) return;
+    var tries = 0;
+    (function fill() {
+      if (input.disabled && tries++ < 50) return setTimeout(fill, 100);
+      input.value = q;
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.focus();
+    })();
+  })();
+</script>
