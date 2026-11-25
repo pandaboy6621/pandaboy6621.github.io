@@ -32,10 +32,11 @@ params:
   ShowWordCount: false
   sidebar:
     avatar: "🔧"
+    github:
+      user: pandaboy6621
+      avatar: https://avatars.githubusercontent.com/u/66539261?v=4
     tagline: "Homelab fixes, self-hosting how-tos and the odd hardware project."
     links:
-      - name: GitHub
-        url: https://github.com/pandaboy6621
       - name: RSS feed
         url: /index.xml
   homeInfoParams:

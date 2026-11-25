@@ -273,3 +273,17 @@ code, pre, kbd { font-family: var(--lf-mono); }
 @media (prefers-reduced-motion: reduce) {
     .lf-sidebar, .lf-link, .lf-avatar, .post-entry { transition: none; }
 }
+
+/* GitHub avatar + handle */
+.lf-avatar { overflow: hidden; }
+.lf-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+.lf-avatar:hover { transform: scale(1.04); }
+.lf-handle {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: -4px;
+    padding: 4px 12px; border-radius: 999px;
+    font-family: var(--lf-mono); font-size: .82rem; color: var(--lf-muted);
+    border: 1px solid var(--lf-line); background: rgba(127, 156, 255, .05);
+    transition: color .15s, border-color .15s;
+}
+.lf-handle svg { width: 15px; height: 15px; fill: currentColor; }
+.lf-handle:hover { color: var(--lf-cyan); border-color: rgba(34, 227, 255, .45); }
