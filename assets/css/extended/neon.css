@@ -280,7 +280,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
 
 /* ----- top bar tabs: file-folder style ----- */
 .lf-topbar { --tab-bg: #0d1428; --tab-on: var(--lf-bg); --tab-r: 14px; }
-.lf-tabs { display: flex; align-items: flex-end; align-self: stretch; padding: 0 var(--tab-r); }
+.lf-tabs { display: flex; align-items: flex-end; align-self: stretch; padding: 0; }
 .lf-tab {
     position: relative; display: inline-flex; align-items: center; gap: 8px;
     height: 42px; padding: 0 22px; margin: 0 -3px;
@@ -306,18 +306,6 @@ code, pre, kbd { font-family: var(--lf-mono); }
     background: var(--lf-lime); box-shadow: 0 0 0 3px rgba(182, 255, 59, .15), 0 0 10px rgba(182, 255, 59, .8);
 }
 .lf-tab.is-active svg { display: none; }
-/* curved "flares" where the selected tab meets the page, like a folder */
-.lf-tab.is-active::before, .lf-tab.is-active::after {
-    content: ""; position: absolute; bottom: 0; width: var(--tab-r); height: var(--tab-r); pointer-events: none;
-}
-.lf-tab.is-active::before {
-    left: calc(-1 * var(--tab-r) - 1px);
-    background: radial-gradient(circle at 0 0, transparent calc(var(--tab-r) - 1px), rgba(148, 163, 255, .22) calc(var(--tab-r) - 1px), rgba(148, 163, 255, .22) var(--tab-r), var(--tab-on) var(--tab-r));
-}
-.lf-tab.is-active::after {
-    right: calc(-1 * var(--tab-r) - 1px);
-    background: radial-gradient(circle at 100% 0, transparent calc(var(--tab-r) - 1px), rgba(148, 163, 255, .22) calc(var(--tab-r) - 1px), rgba(148, 163, 255, .22) var(--tab-r), var(--tab-on) var(--tab-r));
-}
 @media (max-width: 860px) {
     .lf-topbar { justify-content: flex-start; }
     .lf-tabs { flex: 1; justify-content: center; min-width: 0; }
