@@ -21,6 +21,8 @@ params:
   socialIcons:
     - name: github
       url: https://github.com/pandaboy6621
+    - name: linkedin
+      url: https://www.linkedin.com/in/aidan-liyanage/
     - name: rss
       url: /index.xml
   ShowReadingTime: true
