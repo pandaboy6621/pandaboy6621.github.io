@@ -1,0 +1,18 @@
+{{- $meta := slice }}
+{{- if not .Date.IsZero -}}
+  {{- $meta = $meta | append (printf "<span title='%s'>%s</span>" (.Date | time.Format "2006-01-02T15:04:05-07:00") (.Date | time.Format (default ":date_long" site.Params.DateFormat))) }}
+{{- end }}
+{{- if (.Param "ShowReadingTime") -}}
+  {{- $meta = $meta | append (printf "<span>%s</span>" (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
+{{- end }}
+{{- if not (.Param "hideAuthor") -}}
+  {{- with (partial "author.html" .) }}
+    {{- $meta = $meta | append (printf "<span>%s</span>" .) }}
+  {{- end }}
+{{- end }}
+<span class="lf-meta">{{- with $meta }}{{ delimit . "&nbsp;·&nbsp;" | safeHTML }}{{- end -}}</span>
+{{- with .GetTerms "tags" }}
+<span class="lf-meta-tags">
+  {{- range first 4 . }}<a class="lf-tag lf-tag-sm" href="{{ .RelPermalink }}">#{{ .LinkTitle | lower }}</a>{{- end }}
+</span>
+{{- end }}

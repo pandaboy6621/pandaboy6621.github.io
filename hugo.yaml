@@ -6,7 +6,7 @@ enableRobotsTXT: true
 enableEmoji: true
 
 pagination:
-  pagerSize: 10
+  pagerSize: 12
 
 outputs:
   home: [HTML, RSS, JSON]
@@ -15,7 +15,14 @@ params:
   env: production
   description: "Practical how-to guides for homelabs, self-hosting, networking and fixing things."
   author: LiyaFixes
-  defaultTheme: auto
+  defaultTheme: dark
+  disableThemeToggle: true
+  ShowShareButtons: false
+  socialIcons:
+    - name: github
+      url: https://github.com/pandaboy6621
+    - name: rss
+      url: /index.xml
   ShowReadingTime: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
@@ -23,8 +30,31 @@ params:
   ShowToc: true
   TocOpen: false
   ShowWordCount: false
+  hero:
+    eyebrow: "// homelab field notes"
+    title: "Fixes that"
+    highlight: "actually work."
+    primaryText: "Read the latest"
+    secondaryText: "Browse by tag"
+  features:
+    - icon: "🐳"
+      title: "Docker & self-hosting"
+      text: "Compose stacks, upgrades and the weird errors nobody documents."
+      url: /tags/docker/
+    - icon: "🛡️"
+      title: "Security & SSO"
+      text: "authentik, CrowdSec and Traefik setups that keep the bad traffic out."
+      url: /tags/sso/
+    - icon: "🌐"
+      title: "Networking"
+      text: "Routers, subnets, VPNs and getting devices to see each other."
+      url: /tags/networking/
+    - icon: "🛠️"
+      title: "Scripts & DIY"
+      text: "Python helpers, CircuitPython gadgets and terminal one-liners."
+      url: /tags/diy/
   homeInfoParams:
-    Title: "LiyaFixes 🔧"
+    Title: "LiyaFixes"
     Content: >
       Step-by-step fixes and how-tos from my homelab: Docker, reverse proxies,
       single sign-on, routers, scripts and the odd hardware project.
