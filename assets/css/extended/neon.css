@@ -280,10 +280,10 @@ code, pre, kbd { font-family: var(--lf-mono); }
 
 /* ----- top bar tabs: file-folder style ----- */
 .lf-topbar { --tab-bg: #0d1428; --tab-on: var(--lf-bg); --tab-r: 14px; }
-.lf-tabs { display: flex; align-items: flex-end; align-self: stretch; padding: 0; }
+.lf-tabs { display: flex; align-items: flex-end; align-self: stretch; padding: 0; gap: 10px; }
 .lf-tab {
     position: relative; display: inline-flex; align-items: center; gap: 8px;
-    height: 42px; padding: 0 22px; margin: 0 -3px;
+    height: 42px; padding: 0 22px; margin: 0;
     border: 1px solid var(--lf-line); border-bottom: 0;
     border-radius: var(--tab-r) var(--tab-r) 0 0;
     background: linear-gradient(180deg, #121a36, var(--tab-bg));
@@ -307,9 +307,9 @@ code, pre, kbd { font-family: var(--lf-mono); }
 .lf-tab.is-active svg { display: none; }
 @media (max-width: 860px) {
     .lf-topbar { justify-content: flex-start; }
-    .lf-tabs { flex: 1; justify-content: center; min-width: 0; }
+    .lf-tabs { flex: 1; justify-content: center; min-width: 0; gap: 5px; }
     .lf-topbar { --tab-r: 10px; }
-    .lf-tab { padding: 0 11px; font-size: .84rem; height: 38px; margin: 0 -2px; }
+    .lf-tab { padding: 0 10px; font-size: .84rem; height: 38px; margin: 0; }
 
     .lf-tab svg { display: none; }
     .lf-tab-search span { display: none; }
