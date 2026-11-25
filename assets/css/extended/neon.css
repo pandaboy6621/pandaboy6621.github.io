@@ -294,10 +294,9 @@ code, pre, kbd { font-family: var(--lf-mono); }
 .lf-tab svg { width: 16px; height: 16px; }
 .lf-tab:hover { color: var(--lf-text); background: linear-gradient(180deg, #18224a, #101833); z-index: 1; }
 .lf-tab.is-active {
-    z-index: 2; height: 46px; margin-bottom: -1px;
-    color: #f2f6ff; background: var(--tab-on);
-    border-color: rgba(148, 163, 255, .22);
-    box-shadow: 0 -10px 24px -14px rgba(0, 0, 0, .8);
+    z-index: 2;
+    color: #f2f6ff; background: linear-gradient(180deg, #1c2852, #141d3d);
+    border-color: rgba(148, 163, 255, .24);
 }
 /* indicator: glowing dot before the label */
 .lf-tab.is-active span::before {
@@ -311,7 +310,7 @@ code, pre, kbd { font-family: var(--lf-mono); }
     .lf-tabs { flex: 1; justify-content: center; min-width: 0; }
     .lf-topbar { --tab-r: 10px; }
     .lf-tab { padding: 0 11px; font-size: .84rem; height: 38px; margin: 0 -2px; }
-    .lf-tab.is-active { height: 42px; }
+
     .lf-tab svg { display: none; }
     .lf-tab-search span { display: none; }
     .lf-tab-search svg { display: inline-block; }
